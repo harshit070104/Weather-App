@@ -10,15 +10,18 @@ body{
     height: auto;
 }
 #bg-image{
-    height: 620px;
+    height: 100%
 }
 
 #navvy{
     border: solid 3px;    
 }
 
+.h1Tittle{
+    padding: 0 5px;
+}
 #place{
-    font-size:70px;    
+    font-size:70px;  
     font-family: 'Poppins', sans-serif;
 }
 #logo{
@@ -40,4 +43,31 @@ body{
 
 .card-mar{
     margin: 0 3px !important; 
+}
+
+
+
+footer{
+    background-color: rgb(240, 181, 55);
+    opacity: 0.8;
+    color: rgb(101, 245, 88);
+    text-align: center;
+    position: relative;
+    height: 2rem;
+    width: 100%;
+    bottom: 0;
+    top: 100%;
+    
+}
+footer p{
+    margin-bottom: 0rem !important;
+}
+
+@media screen and (max-width:480px){
+    #place{
+        font-size:50px !important;  
+    }
+    .mob-none{
+        display: none;
+    }
 }
