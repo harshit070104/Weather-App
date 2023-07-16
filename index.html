@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    </style>
+
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="icon" href="favicon.io.png?v=2">
+</head>
+
+<body>    
+                                            <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navvy">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="logo" href="#">Weather App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item" id="no">
+                        <a class="nav-link" href="#">Quick Searches</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delhi</a></li>
+                            <li><a class="dropdown-item" href="#">Ambala</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Bangalore</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="no">
+                        <a class="nav-link disabled">About this app</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="city" class="form-control me-2" type="search" placeholder="Search your city" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    
+
+                                        <!-- CARDS -->
+    <div id="bg-image">
+        <br><br>
+        <h1 id="place">Weather of <span id="cityName"></span></h1>
+        <br><br><br>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center card-mar" bis_skin_checked="1">
+                <div class="col" bis_skin_checked="1">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary" bis_skin_checked="1">
+                        <div class="card-header py-3 text-bg-primary border-primary" bis_skin_checked="1">
+                            <h4 class="my-0 fw-normal">Temperatures</h4>
+                        </div>
+                        <div class="card-body" bis_skin_checked="1">
+                            <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class="text-muted fw-light"> ℃</small>
+                            </h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Temprature :  <span id="temp"></span></li>
+                                <li>Min Temperature :  <span id="min_temp"></span></li>
+                                <li>Max Temperature :  <span id="max_temp"></span></li>                                                            
+                            </ul>                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col" bis_skin_checked="1">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary" bis_skin_checked="1">
+                        <div class="card-header py-3 text-bg-primary border-primary" bis_skin_checked="1">
+                            <h4 class="my-0 fw-normal">Humidity Info</h4>
+                        </div>
+                        <div class="card-body" bis_skin_checked="1">
+                            <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class="text-muted fw-light"> %</small>
+                            </h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Cloud Percent :  <span id="cloud_pct"></span></li>
+                                <li>Feels Like :  <span id="feels_like"></span></li>
+                                <li>Humidity :  <span id="humidity"></span></li>
+                                
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col" bis_skin_checked="1">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary" bis_skin_checked="1">
+                        <div class="card-header py-3 text-bg-primary border-primary" bis_skin_checked="1">
+                            <h4 class="my-0 fw-normal">Wind Info</h4>
+                        </div>
+                        <div class="card-body" bis_skin_checked="1">
+                            <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small class="text-muted fw-light"> km/hr</small>
+                            </h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Wind Speed :  <span id="wind_speed"></span>&nbsp;<span id="wind_degrees"></span></li>
+                                <!--<li>Wind Degrees :  <span id="wind_degrees"></span></li>-->
+                                <li>Sunrise :  <span id="sunrise"></span></li>
+                                <li>Sunset :  <span id="sunset"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- 
+            <h2 class="display-6 text-center mb-4">WEATHER &nbsp; OF&nbsp; COMMON&nbsp; PLACES</h2>
+
+            <div class="table-responsive" bis_skin_checked="1">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="width: 24%;"> Cloud Percent</th>
+                            <th style="width: 24%;"> Feels Like</th>
+                            <th style="width: 24%;"> Humidity</th>
+                            <th style="width: 24%;"> Max Temp</th>
+                            <th style="width: 24%;"> Min Temp</th>
+                            <th style="width: 24%;"> Sunrise</th>
+                            <th style="width: 24%;"> Sunset</th>
+                            <th style="width: 24%;"> Temp</th>
+                            <th style="width: 24%;"> Wind Degrees</th>
+                            <th style="width: 24%;"> Wind Speed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Jaipur</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Mumbai</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Bangalore</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Chennai</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Kolkatta</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

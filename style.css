@@ -1,0 +1,43 @@
+h1{
+    text-align: center;
+}
+body{
+    background-image: url("weather-forecast-background.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;    
+    height: auto;
+}
+#bg-image{
+    height: 620px;
+}
+
+#navvy{
+    border: solid 3px;    
+}
+
+#place{
+    font-size:70px;    
+    font-family: 'Poppins', sans-serif;
+}
+#logo{
+    font-weight: 500;
+}
+
+.nav-item:hover{
+    text-decoration:underline;
+    text-decoration-style: solid;
+}
+
+.nav-item.dropdown:hover{
+    display: block;
+}
+
+#no{
+    text-decoration: none;
+}
+
+.card-mar{
+    margin: 0 3px !important; 
+}
